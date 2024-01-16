@@ -53,7 +53,47 @@
 -- SELECT ROUND(Total, 1)
 -- FROM invoices;
 
-SELECT BillingCountry, SUM(Total)
-FROM invoices
-GROUP BY BillingCountry
-HAVING SUM(Total) > 100;
+-- SELECT BillingCountry, SUM(Total)
+-- FROM invoices
+-- GROUP BY BillingCountry
+-- HAVING SUM(Total) > 100;
+
+-- SELECT invoices.CustomerId,invoices.BillingAddress,invoices.InvoiceDate,customers.FirstName
+-- FROM invoices
+-- JOIN customers
+--   ON invoices.CustomerId = customers.CustomerId;
+
+-- CREATE TABLE PEOPLE (username TEXT NOT NULL PRIMARY KEY, 
+-- password NOT NULL, email NOT NULL, PlaylistId INTEGER);
+
+-- INSERT INTO PEOPLE (username, password, email, PlaylistId) 
+-- VALUES ('Jane','janepassword','jane@gmail.com',2);
+
+-- SELECT *
+-- FROM playlists
+-- INNER JOIN PEOPLE
+--   ON playlists.PlaylistId = PEOPLE.PlaylistId;
+
+-- SELECT *
+-- FROM PEOPLE
+-- LEFT JOIN playlists
+--   ON PEOPLE.PlaylistId = playlists.PlaylistId;
+
+-- SELECT *
+-- FROM playlists
+-- LEFT JOIN PEOPLE
+--   ON playlists.PlaylistId = PEOPLE.PlaylistId;
+-- SELECT *
+-- FROM PEOPLE
+-- CROSS JOIN playlists;
+
+SELECT PlaylistId, Name
+FROM playlists
+
+UNION
+
+SELECT PlaylistId, TrackId
+FROM playlist_track
+
+
+

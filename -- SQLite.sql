@@ -87,13 +87,32 @@
 -- FROM PEOPLE
 -- CROSS JOIN playlists;
 
-SELECT PlaylistId, Name
-FROM playlists
+-- SELECT PlaylistId, Name
+-- FROM playlists
 
-UNION
+-- UNION ALL
 
-SELECT PlaylistId, TrackId
-FROM playlist_track
+-- SELECT MediaTypeId, Name
+-- FROM media_types
 
 
+-- WITH previous_query AS (
+--     SELECT BillingCountry, AVG(Total) AS AVG_Total 
+--     FROM invoices
+--     GROUP BY BillingCountry
+-- )
+-- SELECT * FROM previous_query
+
+-- SELECT *
+-- FROM playlists
+-- UNION ALL
+-- SELECT *
+-- FROM media_types;
+
+WITH previous_result AS (
+    SELECT BillingCountry, AVG(Total) AS AVG_Total 
+    FROM invoices
+    GROUP BY BillingCountry
+)
+SELECT AVG_Total FROM previous_result;
 
